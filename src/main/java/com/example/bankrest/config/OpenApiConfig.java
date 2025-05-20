@@ -16,21 +16,16 @@ import org.springframework.context.annotation.Configuration;
                 version     = "1.0",
                 description = "API для управления банковскими картами"
         ),
-        // Глобально требуем JWT-токен для всех операций
         security = @SecurityRequirement(name = "bearerAuth")
 )
 @SecurityScheme(
-        name         = "bearerAuth",            // то же имя, что в SecurityRequirement
-        type         = SecuritySchemeType.HTTP, // HTTP-аутентификация
-        scheme       = "bearer",                // схема “Bearer”
-        bearerFormat = "JWT"                    // формат — JWT
+        name         = "bearerAuth",
+        type         = SecuritySchemeType.HTTP,
+        scheme       = "bearer",
+        bearerFormat = "JWT"
 )
 public class OpenApiConfig {
 
-    /**
-     * Опционально: дополнительная конфигурация OpenAPI
-     * (устанавливает заголовок, описание, версию и т.п.)
-     */
     @Bean
     public OpenAPI apiInfo() {
         return new OpenAPI()
